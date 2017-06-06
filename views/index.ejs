@@ -1,13 +1,29 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html>
   <head>
-    <title>LeanEngine</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <meta charset="utf-8">  
+    <title><%= title %></title>
+    
   </head>
   <body>
-    <h1>LeanEngine</h1>
-    <p>这是 LeanEngine 的示例应用</p>
-    <p>当前时间：<%= currentTime %></p>
-    <p><a href="/todos">一个简单的「TODO 列表」示例</a></p>
+    <div id="header">
+      <a class="add-note" title="添加笔记" href="#"><span class="fa fa-plus"></span>添加</a>
+      <ul class="user-area">
+      <% if (isLogin){ %>
+        <li><img src="<%= user.avatar %>" alt=""></li>
+        <li><span title="<%= user.username %>"><%=
+        user.username %></span></li>
+        <li><span class="line"> | </span> </li>
+        <li><a class"logout" href="/auth/logout">注销</a></li>
+      <% } else {%> 
+        <li><a href="/auth/github" class="login" title="Github"> Github登录</a></li>
+      <% } %>  
+      </ul>
+    </div>
+    <div id="content">
+
+    </div>
+    <div class="stars"></div>
+    <script src="js/bundle.js"></script>
   </body>
 </html>
